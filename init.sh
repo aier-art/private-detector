@@ -9,3 +9,5 @@ if [[ $(uname) != *"Darwin"* ]]; then
 else
   pip install tensorflow-macos
 fi
+
+pip install -r requirements.txt
