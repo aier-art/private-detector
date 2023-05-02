@@ -1,4 +1,3 @@
 pyyaml
-tensorflow-addons
 absl-py
 
