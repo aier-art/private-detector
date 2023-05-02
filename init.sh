@@ -8,7 +8,9 @@ if [[ $(uname) != *"Darwin"* ]]; then
   pip install tensorflow
   if grep -q 'arm' /proc/cpuinfo || grep -q 'aarch64' /proc/cpuinfo; then
     apt-get install -y openjdk-19-jdk
-    wget https://github.com/bazelbuild/bazel/releases/download/7.0.0-pre.20230420.2/bazel-7.0.0-pre.20230420.2-linux-arm64 -O /usr/local/bin/bazel
+    if ! [ -x "$(command -v bazel)" ]; then
+      wget https://github.com/bazelbuild/bazel/releases/download/7.0.0-pre.20230420.2/bazel-7.0.0-pre.20230420.2-linux-arm64 -O /usr/local/bin/bazel
+    fi
     chmod +x /usr/local/bin/bazel
     git clone https://github.com/tensorflow/addons.git
     cd addons
