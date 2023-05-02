@@ -10,8 +10,8 @@ if [[ $(uname) != *"Darwin"* ]]; then
     apt-get install -y openjdk-19-jdk
     if ! [ -x "$(command -v bazel)" ]; then
       wget https://github.com/bazelbuild/bazel/releases/download/7.0.0-pre.20230420.2/bazel-7.0.0-pre.20230420.2-linux-arm64 -O /usr/local/bin/bazel
+      chmod +x /usr/local/bin/bazel
     fi
-    chmod +x /usr/local/bin/bazel
     git clone https://github.com/tensorflow/addons.git
     cd addons
     python3 ./configure.py
